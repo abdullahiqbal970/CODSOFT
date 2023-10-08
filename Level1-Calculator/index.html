@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdullah Iqbal</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="child">
+      <form action="" class="container">
+          <div class="display">
+          <input type="text" class="screen" id="display" />
+        </div>
+
+        <div class="hello">
+          <div>
+            <input type="button" value="AC" onclick="display.value = '' " />
+            <input type="button" value="7" onclick="display.value += '7' " />
+            <input type="button" value="4" onclick="display.value += '4' " />
+            <input type="button" value="1" onclick="display.value += '1' " />
+            <input type="button" value="00" onclick="display.value += '00' " />
+          </div>
+
+          <div>
+            <input
+              type="button"
+              value="DE"
+              onclick="display.value = display.value.toString().slice(0,-1)"
+            />
+            <input type="button" value="8" onclick="display.value += '8' " />
+            <input type="button" value="5" onclick="display.value += '5' " />
+            <input type="button" value="2" onclick="display.value += '2' " />
+            <input type="button" value="0" onclick="display.value += '0' " />
+          </div>
+
+          <div class="hi">
+            <input type="button" value="." onclick="enteroperator('.')" />
+            <input type="button" value="9" onclick="display.value += '9' " />
+            <input type="button" value="6" onclick="display.value += '6' " />
+            <input type="button" value="3" onclick="display.value += '3' " />
+            <input
+              type="button"
+              class="equal"
+              value="="
+              onclick="calculateResult()"
+            />
+          </div>
+
+          <div class="come">
+            <input type="button" value="/" onclick="enteroperator('/')" />
+            <input type="button" value="*" onclick="enteroperator('*')" />
+            <input type="button" value="-" onclick="enteroperator('-')" />
+            <input type="button" value="+" onclick="enteroperator('+')" />
+            <input type="button" value="%" onclick="enteroperator('%')" />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- <script>
+      function enteroperator(input) {
+        
+        var display = document.getElementById("display");
+        y = display.value;
+        
+
+        var lastCharacter = y.slice(-1);
+        if (lastCharacter === "." && input === ".") {
+          display.value = y;
+        } else {
+          var operatorPattern = /[+\-%*/]$/;
+          if (operatorPattern.test(y)) {
+            var operators = ["+", "-", "*", "/", "%"];
+
+            // Check if the last character of the string is an operator
+            var lastCharacter = y.slice(-1);
+            if (operators.includes(lastCharacter)) {
+              // Remove the last character (operator) from the string
+              y = y.slice(0, -1);
+              y += input;
+              display.value = y;
+            }
+          } else {
+            display.value += input;
+          }
+        }
+      }
+
+      function calculateResult() {
+        var display = document.getElementById("display");
+        y = display.value;
+
+        var alphabetPattern = /[a-zA-Z]+/g;
+        var alphabetCharacters = y.match(alphabetPattern);
+        if (alphabetCharacters) {
+          display.value = "error";
+        } else {
+          // var parts = y.split(/\s+/);
+
+          var operators = /[+\-*%/]/; // Define a regular expression for common operators
+          var parts = y.split(operators);
+          
+          var hasError = false;
+          for (var i = 0; i < parts.length; i++) {
+            if (parts[i].indexOf(".") !== parts[i].lastIndexOf(".")) {
+              
+              hasError = true;
+              break; // Exit the loop if an error is found
+            }
+          }
+
+          if (hasError) {
+            console.log("Hello");
+            display.value = "error";
+          } else {
+            // remove last operators
+            var operatorPattern = /[+\-%*./]$/;
+            if (operatorPattern.test(y)) {
+              var operators = ["+", "-", "*", "/", ".", "%"];
+
+              // Check if the last character of the string is an operator
+              var lastCharacter = y.slice(-1);
+              if (operators.includes(lastCharacter)) {
+                // Remove the last character (operator) from the string
+                y = y.slice(0, -1);
+              }
+            }
+
+            let x = eval(y);
+            var pattern = /\d+/;
+
+            if (pattern.test(x)) {
+              if ( x % 1 !== 0 ) {
+                // If there's a fractional part, limit it to four decimal places
+                display.value = x.toFixed(3);
+              }
+              else {
+                display.value = x;
+              }
+            }
+          }
+        }
+      }
+    </script> -->
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
