@@ -7,7 +7,7 @@ function enteroperator(input) {
     display.value = y;
   } else {
     var operatorPattern = /[+\-%*/]$/;
-    if (operatorPattern.test(y)) {
+    if (operatorPattern.test(y)) { 
       var operators = ["+", "-", "*", "/", "%"];
 
       // Check if the last character of the string is an operator
